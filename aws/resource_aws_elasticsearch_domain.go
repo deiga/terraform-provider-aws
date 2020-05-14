@@ -79,7 +79,7 @@ func resourceAwsElasticSearchDomain() *schema.Resource {
 					value := v.(string)
 					if !regexp.MustCompile(`^[a-z][0-9a-z\-]{2,27}$`).MatchString(value) {
 						errors = append(errors, fmt.Errorf(
-							"%q must start with a lowercase alphabet and be at least 3 and no more than 28 characters long. Valid characters are a-z (lowercase letters), 0-9, and - (hyphen).", k))
+							"%q must start with a lowercase alphabet and be at least 3 and no more than 28 characters long. Valid characters are a-z (lowercase letters), 0-9, and - (hyphen). Current value: %q", k, value))
 					}
 					return
 				},
